@@ -67,8 +67,7 @@ COPY --from=ext-deps /out/ ./extensions/
 # Docker builds on small VMs may otherwise fail with "Killed" (exit 137).
 #RUN --mount=type=cache,id=openclaw-pnpm-store,target=/root/.local/share/pnpm/store,sharing=locked \
 #    NODE_OPTIONS=--max-old-space-size=2048 pnpm install --frozen-lockfile
-RUN --mount=type=cache,id=s/f1bcc17d-7a22-473c-b495-3fe8cb5bc40e-openclaw-pnpm-store, \
-    target=/root/.local/share/pnpm/store,sharing=locked \
+RUN --mount=type=cache,id=s/f1bcc17d-7a22-473c-b495-3fe8cb5bc40e-openclaw-pnpm-store,target=/root/.local/share/pnpm/store,sharing=locked \
     NODE_OPTIONS=--max-old-space-size=2048 pnpm install --frozen-lockfile
 COPY . .
 
